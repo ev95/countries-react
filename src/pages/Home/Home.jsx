@@ -3,12 +3,14 @@ import './Home.css'
 
 function Home({ countries }) {
     return (
-        <div className='countries-list'>
-            {countries.map(country => {
-                return (
-                    <CountryItem country={country} />
-                )
-            })}
+        <div className="container">
+            <div className='countries-list'>
+                {countries.map(country => {
+                    return (
+                        <CountryItem key={country.name.common} country={country} />
+                    )
+                })}
+            </div>
         </div>
     )
 }
