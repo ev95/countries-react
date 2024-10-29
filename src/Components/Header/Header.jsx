@@ -1,5 +1,6 @@
 import './Header.css'
 import { API } from '../../api/api';
+import { NavLink } from 'react-router-dom';
 
 function Header({ dispatch }) {
     const regions = ["Asia", "Antarctic", "Americas", "Africa", "Europe", "Oceania"];
@@ -15,7 +16,9 @@ function Header({ dispatch }) {
         <header>
             <div className="container header">
                 <div className="logo">
-                    <img src="https://www.freeiconspng.com/uploads/globe-png-15.png" />
+                    <NavLink to={'/'}>
+                        <img src="https://www.freeiconspng.com/uploads/globe-png-15.png" />
+                    </NavLink>
                 </div>
                 <div></div>
                 <div className="search">
