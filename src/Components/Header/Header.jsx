@@ -1,10 +1,13 @@
-import './Header.css'
-import { API } from '../../api/api';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
-import { setSearchResultAC, setSearchTextAC } from '../../store/store.js'
-import { useEffect, useState } from 'react';
 
-function Header({ state, dispatch }) {
+import { setSearchResultAC, setSearchTextAC } from '../../store/store.js'
+import { MainContext } from '../../App.jsx';
+import { API } from '../../api/api';
+import './Header.css'
+
+function Header() {
+    const { state, dispatch } = useContext(MainContext);
     const navigate = useNavigate();
     const [isOpen, setIsOpen] = useState(false);
     const regions = ["Asia", "Antarctic", "Americas", "Africa", "Europe", "Oceania"];

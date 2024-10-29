@@ -1,10 +1,13 @@
+import { useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom'
-import './CountryPage.css'
-import { useEffect } from 'react';
-import { API } from '../../api/api';
-import CountryItem from '../../Components/CountryItem/CountryItem';
 
-function CountryPage({ dispatch, state }) {
+import CountryItem from '../../Components/CountryItem/CountryItem';
+import { MainContext } from '../../App';
+import { API } from '../../api/api';
+import './CountryPage.css'
+
+function CountryPage() {
+    const { state, dispatch } = useContext(MainContext);
     const { name } = useParams();
     useEffect(() => {
         API.getCountry(dispatch, name);
