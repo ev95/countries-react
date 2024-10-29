@@ -47,6 +47,10 @@ nav ul li a:hover {
   color: #007bff;
 }
 
+.search {
+  position: relative;
+}
+
 .search input {
   padding: 8px 15px;
   border: 1px solid #ccc;
@@ -69,4 +73,29 @@ nav ul li a:hover {
   border-color: #ccc;
   border-radius: 20px;
   font-size: 15px;
+}
+
+.search-result {
+  right: 0;
+  top: 39px;
+  padding: 10px;
+  min-width: 220px;
+  overflow: scroll;
+  max-height: 300px;
+  border-radius: 6px;
+  position: absolute;
+  border: 1px solid #ccc;
+  background-color: #f8f8f8;
+}
+
+.search-result > span {
+  display: block;
+  padding: 5px;
+  margin-bottom: 2px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.search-result > span:hover {
+  background-color: #efefef;
 }

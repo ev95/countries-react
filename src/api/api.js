@@ -4,6 +4,8 @@ import {
   getRegionAC,
   getCountryAC,
   getBorderCountriesAC,
+  setSearchResultAC,
+  errorMessageAC,
 } from "../store/store";
 
 const instance = axios.create({
@@ -28,6 +30,20 @@ export const API = {
     instance
       .get(`/alpha?codes=${country_codes}`)
       .then((res) => dispatch(getBorderCountriesAC(res.data)));
+  },
+  searchCountries(dispatch, name) {
+    instance
+      .get(`/name/${name}`)
+      .then((res) => {
+        dispatch(setSearchResultAC(res.data));
+        dispatch(errorMessageAC(""));
+      })
+      .catch((res) => {
+        if (res.status === 404) {
+          dispatch(errorMessageAC("Country not found"));
+          dispatch(setSearchResultAC([]));
+        }
+      });
   },
 };
 // https://restcountries.com/v3.1/alpha?codes=AZE,GEO,IRN

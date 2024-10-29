@@ -17,7 +17,7 @@ function App() {
 
   return (
     <div className='App'>
-      <Header dispatch={dispatch} />
+      <Header dispatch={dispatch} state={state} />
       <Routes>
         <Route path='/' element={<Home countries={state.countries} />} />
         <Route path='/:name' element={<CountryPage dispatch={dispatch} state={state} />} />
