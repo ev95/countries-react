@@ -17,7 +17,7 @@ function CountryPage() {
     }, [state.country])
 
     return (
-        <div className="container country-wrapper">
+        <div className={state.isDarkMode ? 'dark container country-wrapper' : 'container country-wrapper'}>
             <div className="country-header">
                 <img src={state?.country[0]?.flags.png} alt={state?.country[0]?.name.common} className="country-flag" />
                 <h1>{state?.country[0]?.name.common} {state?.country[0]?.flag}</h1>

@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useNavigate, NavLink } from 'react-router-dom';
 
 import { setSearchResultAC, setSearchTextAC } from '../../store/store.js'
+import LightDarkSwitch from '../LightDarkSwitch/LightDarkSwitch.jsx';
 import { MainContext } from '../../App.jsx';
 import { API } from '../../api/api';
 import './Header.css'
@@ -37,7 +38,7 @@ function Header() {
     }
 
     return (
-        <header>
+        <header className={state.isDarkMode ? 'dark' : ''}>
             <div className="container header">
                 <div className="logo">
                     <NavLink to={'/'}>
@@ -67,6 +68,8 @@ function Header() {
                             {state.errorMessage && state?.searchResult.length === 0 && <span>{state.errorMessage}</span>}
                         </div>}
                 </div>
+
+                <LightDarkSwitch />
             </div>
         </header>
     )

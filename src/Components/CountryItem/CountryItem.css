@@ -33,3 +33,7 @@
   display: flex;
   align-items: center;
 }
+
+.dark .country-selector:hover {
+  box-shadow: 4px -2px 17px 4px rgb(219 219 219 / 44%);
+}

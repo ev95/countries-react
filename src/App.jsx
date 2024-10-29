@@ -19,7 +19,7 @@ function App() {
   }, [])
 
   return (
-    <div className='App'>
+    <div className={state.isDarkMode ? 'App dark' : 'App'}>
       <MainContext.Provider
         value={{
           state,

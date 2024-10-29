@@ -94,8 +94,65 @@ nav ul li a:hover {
   margin-bottom: 2px;
   border-radius: 3px;
   cursor: pointer;
+  color: #000;
 }
 
 .search-result > span:hover {
   background-color: #efefef;
+}
+
+/* Theme toggle container */
+.theme-toggle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffdc00; /* Sun color */
+  cursor: pointer;
+  position: relative;
+  transition: background 0.3s ease;
+}
+
+/* Icon styling */
+.icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #f4f4f9; /* Inner moon/sun color */
+  position: relative;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Sun rays */
+.theme-toggle.light .icon {
+  box-shadow: 0 0 0 0px #ffdc00, 0 0 0 7px #ffdc00, 0 0 0 14px #ffdc00;
+}
+
+/* Dark mode styling */
+.theme-toggle.dark {
+  background: #333; /* Dark mode background */
+}
+
+.theme-toggle.dark .icon {
+  background: #333;
+  box-shadow: none;
+}
+
+/* Moon shape */
+.theme-toggle.dark .icon::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #f4f4f9;
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  transform: translate(30%, -30%);
+}
+
+header.dark {
+  box-shadow: 0 2px 5px rgb(255 255 255 / 10%);
 }

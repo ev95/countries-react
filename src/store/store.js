@@ -1,10 +1,11 @@
-const GET_ALL = "GET_ALL";
-const GET_REGION = "GET_REGION";
-const GET_COUNTRY = "GET_COUNTRY";
 const GET_BORDER_COUNTRIES = "GET_BORDER_COUNTRIES";
-const SET_SEARCH_TEXT = "SET_SEARCH_TEXT";
 const SET_SEARCH_RESULT = "SET_SEARCH_RESULT";
+const SET_SEARCH_TEXT = "SET_SEARCH_TEXT";
 const ERROR_MESSAGE = "ERROR_MESSAGE";
+const SET_DARK_MODE = "SET_DARK_MODE";
+const GET_COUNTRY = "GET_COUNTRY";
+const GET_REGION = "GET_REGION";
+const GET_ALL = "GET_ALL";
 
 export const initState = {
   countries: [],
@@ -13,6 +14,7 @@ export const initState = {
   searchText: "",
   searchResult: [],
   errorMessage: "",
+  isDarkMode: false,
 };
 
 export const reducer = (state, action) => {
@@ -59,6 +61,12 @@ export const reducer = (state, action) => {
         errorMessage: action.payload,
       };
     }
+    case SET_DARK_MODE: {
+      return {
+        ...state,
+        isDarkMode: action.payload,
+      };
+    }
     default: {
       return state;
     }
@@ -83,5 +91,10 @@ export const setSearchResultAC = (data) => ({
 });
 export const errorMessageAC = (data) => ({
   type: ERROR_MESSAGE,
+  payload: data,
+});
+
+export const setDarkModeAC = (data) => ({
+  type: SET_DARK_MODE,
   payload: data,
 });
